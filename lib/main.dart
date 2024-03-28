@@ -1,4 +1,3 @@
-import 'package:file_type_check/screenTwo.dart';
 import 'package:flutter/material.dart';
 import 'permission.dart';
 void main() {
