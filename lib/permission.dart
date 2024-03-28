@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 Future<void> requestStoragePermission(BuildContext context) async {
-  var status = await Permission.microphone.status;
+  var status = await Permission.manageExternalStorage.status;
   print("status: $status");
   if (status.isGranted) {
     // Permission already granted

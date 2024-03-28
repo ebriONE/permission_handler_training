@@ -1,7 +1,8 @@
+import 'package:file_type_check/screenTwo.dart';
 import 'package:flutter/material.dart';
 import 'permission.dart';
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -30,6 +31,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int _selectedIndex = 0;
+
+  // final List<Color> _itemColors = [
+  //   Colors.blue, // Color for item 0
+  //   Colors.green, // Color for item 1
+  //   Colors.red, // Color for item 2
+  // ];
+
+  // Color _getItemColor(int index) {
+  //   return _selectedIndex == index ? Colors.black : _itemColors[index];
+  // }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,17 +78,23 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        items:  const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "Home"
+              label: "Home",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
           ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.white,
+        onTap: _onItemTapped,
+        unselectedItemColor: Colors.grey,
+        //backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
       ),
     );
+    }
   }
-}
