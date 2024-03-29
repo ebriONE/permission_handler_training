@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 Future<void> requestStoragePermission(BuildContext context) async {
-  var status = await Permission.manageExternalStorage.status;
+  var status = await Permission.storage.status;
   print("status: $status");
   if (status.isGranted) {
     // Permission already granted
@@ -17,7 +17,6 @@ Future<void> requestStoragePermission(BuildContext context) async {
         SnackBar(content: Text('Storage permission granted')),
       );
     } else {
-      // Permission denied
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Storage permission denied')),
       );
