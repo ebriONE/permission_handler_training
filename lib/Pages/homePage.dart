@@ -1,4 +1,4 @@
-import 'package:file_type_check/permission.dart';
+import 'package:file_type_check/tools/permission.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {

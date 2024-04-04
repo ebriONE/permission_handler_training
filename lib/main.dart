@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark(useMaterial3: true,),
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("File Type Check"),
+        centerTitle: true,
       ),
 
       body: PageView(
