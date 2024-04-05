@@ -1,7 +1,15 @@
 import 'package:file_type_check/tools/permission.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+
+  Color _pressed = Colors.grey;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,14 +25,34 @@ class MainPage extends StatelessWidget {
                 child: const Text("Fedchyk Pidar"),
               ),
             ),
+            const Spacer(flex: 1,),
             Padding(
-              padding: const EdgeInsets.fromLTRB(160.0, 550.0, 140.0, 0.0),
-              child: FloatingActionButton(
-                onPressed: () {
-                  // Call a function to request storage permission
-                  requestStoragePermission(context);
-                },
-                child: const Icon(Icons.add),
+              padding: const EdgeInsets.all(8.0),
+              child: Expanded(
+                child: FloatingActionButton(
+                  onPressed: () {
+                    // Call a function to request storage permission
+                    requestStoragePermission(context);
+                    },
+                  child: const Icon(Icons.add),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(4.0, 20.0, 4.0, 2.0),
+                child: Container(
+                  color: _pressed,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _pressed == Colors.yellow
+                            ? _pressed = Colors.grey
+                            : _pressed = Colors.yellow;
+                      });
+                    },
+                  ),
+                ),
               ),
             ),
           ],
