@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
                 child: const Text("Fedchyk Pidar"),
               ),
             ),
-            Spacer(flex: 1,),
+            const Spacer(flex: 1,),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,
               width: MediaQuery.of(context).size.width * 0.15,
