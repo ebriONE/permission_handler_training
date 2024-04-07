@@ -25,17 +25,17 @@ class _MainPageState extends State<MainPage> {
                 child: const Text("Fedchyk Pidar"),
               ),
             ),
-            const Spacer(flex: 1,),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                child: FloatingActionButton(
-                  onPressed: () {
-                    // Call a function to request storage permission
-                    requestStoragePermission(context);
-                    },
-                  child: const Icon(Icons.add),
-                ),
+            Spacer(flex: 1,),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.15,
+              child: FloatingActionButton(
+
+                onPressed: () {
+                  //requestPermission();
+                   requestStoragePermission(context);
+                  },
+                child: const Icon(Icons.add),
               ),
             ),
             Expanded(

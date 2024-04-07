@@ -1,4 +1,6 @@
+import 'package:file_type_check/Theme/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SecondPage extends StatefulWidget {
   @override
@@ -31,6 +33,7 @@ class _SecondPageState extends State<SecondPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
+                flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -46,20 +49,25 @@ class _SecondPageState extends State<SecondPage> {
                             style: TextStyle(fontSize: 13,color: Colors.deepPurple,fontWeight: FontWeight.bold),),
                         ),
                         const Spacer(flex: 1,),
-                        Switch(
-                          thumbIcon: thumbIcon,
-                          value: light1,
-                          onChanged: (bool value) {
-                            setState(() {
-                              light1 = value;
-                            });
-                          },
-                        ),
+                        // Switch(
+                        //   thumbIcon: thumbIcon,
+                        //   value: light1,
+                        //   onChanged:
+                        //         (bool value) {
+                        //     setState(() {
+                        //       light1 = value;
+                        //     });
+                        //   },
+                        // ),
+                        FloatingActionButton(onPressed: (){
+                          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+
+                        })
                       ],
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           )
       );

@@ -1,9 +1,16 @@
+
+import 'package:file_type_check/Theme/theme.dart';
+import 'package:file_type_check/Theme/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'Pages/homePage.dart';
 import 'Pages/secondPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(),
+      child: const MyApp()
+  ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(useMaterial3: true,),
+      theme: lightMode,
+      darkTheme: Provider.of<ThemeProvider>(context).themeData,
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
@@ -34,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
       _pageController.animateToPage(index,
-          duration: Duration(milliseconds: 300), curve: Curves.ease);
+          duration: const Duration(milliseconds: 300), curve: Curves.ease);
     });
   }
 
