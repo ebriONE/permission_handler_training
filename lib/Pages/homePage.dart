@@ -2,11 +2,14 @@ import 'package:file_type_check/tools/permission.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
+
 
   Color _pressed = Colors.grey;
 

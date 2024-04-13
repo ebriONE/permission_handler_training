@@ -1,16 +1,22 @@
 
 import 'package:file_type_check/Theme/theme.dart';
 import 'package:file_type_check/Theme/theme_provider.dart';
+import 'package:file_type_check/tools/dependency_injection.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'Pages/homePage.dart';
 import 'Pages/secondPage.dart';
+import 'Pages/thirdPage.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(),
-      child: const MyApp()
-  ),
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
   );
+  DependencyInjection.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +24,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: lightMode,
       darkTheme: Provider.of<ThemeProvider>(context).themeData,
       debugShowCheckedModeBanner: false,
@@ -65,6 +71,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           MainPage(),
           SecondPage(),
+          apiPage()
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -77,6 +84,10 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.settings),
             label: 'Settings',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.api),
+            label: "API"
+          )
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,

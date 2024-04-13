@@ -13,15 +13,17 @@ class _SecondPageState extends State<SecondPage> {
   bool light0 = true;
   bool light1 = true;
 
-  final MaterialStateProperty<Icon?> thumbIcon =
-  MaterialStateProperty.resolveWith<Icon?>(
-        (Set<MaterialState> states) {
-      if (states.contains(MaterialState.selected)) {
-        return const Icon(Icons.shield_moon_rounded);
-      }
-      return const Icon(Icons.sunny);
-    },
-  );
+  // функція для світчера якого неіснує
+  //
+  // final MaterialStateProperty<Icon?> thumbIcon =
+  // MaterialStateProperty.resolveWith<Icon?>(
+  //       (Set<MaterialState> states) {
+  //     if (states.contains(MaterialState.selected)) {
+  //       return const Icon(Icons.shield_moon_rounded);
+  //     }
+  //     return const Icon(Icons.sunny);
+  //   },
+  // );
 
 
   @override
@@ -49,6 +51,9 @@ class _SecondPageState extends State<SecondPage> {
                             style: TextStyle(fontSize: 13,color: Colors.deepPurple,fontWeight: FontWeight.bold),),
                         ),
                         const Spacer(flex: 1,),
+                        // той самий світчер якого не існує
+                        // не рекоменую розкоменчувати!!!!!!!!!!
+                        //
                         // Switch(
                         //   thumbIcon: thumbIcon,
                         //   value: light1,

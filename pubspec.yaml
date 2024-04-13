@@ -32,9 +32,12 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   permission_handler: 11.0.1
-  file_picker: ^6.2.0
+  #file_picker: ^6.2.0
   provider: ^6.1.2
-  flutter_camera: ^1.0.0
+  #flutter_camera: ^1.0.0
+  http: ^1.2.1
+  connectivity_plus: ^6.0.2
+  get: ^4.6.6
   #location: ^5.0.3
 
 dev_dependencies:
